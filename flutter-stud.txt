@@ -1,0 +1,79 @@
+
+vs code
+
+run on web
+flutter run -d chrome
+
+
+Evolution : 
+- Navigation 
+- Formulaire 
+
+Bloc with dbestech, with travel app design 
+https://www.youtube.com/watch?v=x4DydJKVvQk 
+
+Flutter version 3.7 
+https://www.youtube.com/playlist?list=PL-7EgTNrNHKY7X7cdIIkyaFs4O9N-fRLj 
+
+
+en francais , formation complète 
+https://www.youtube.com/playlist?list=PLRNSfzJHcy9FqWhylxQO0ebzcEkpI_ZwO 
+
+Jolies Interfaces : crud apps to do moderne et rest api 
+https://www.youtube.com/watch?v=ITnwVIpZa3s 
+
+steps code
+
+https://www.dbestech.com/tutorials/flutter-task-management-app-with-restful-api
+
+ensuite bloc 
+https://www.dbestech.com/tutorials/flutter-bloc-pattern-examples 
+
+un coup d’oeil sur getX
+https://www.dbestech.com/tutorials/flutter-getx-app-tutorial 
+
+
+
+integrate rest api
+https://www.youtube.com/playlist?list=PLXbYsh3rUPSzuLcZsIkpDmftSQbFmUq9x 
+
+jolies interfaces  commerce avec bloc 
+https://www.youtube.com/playlist?list=PLCAZyR6zw2px5C7L2cCG4aywx6g58MIoP 
+
+state management 
+bloc
+https://www.youtube.com/watch?v=F5q0oz5pryY&list=PL7jdfftn7HKshGemeYWLTqpVjNaJow-l0 
+getx
+https://www.youtube.com/watch?v=wtHBsvj2QKA&list=PLCaS22Sjc8YR32XmudgmVqs49t-eKKr9t 
+
+ 
+
+code https://github.com/iamshaunjp/flutter-beginners-tutorial
+fluter e comemrce app 
+https://www.youtube.com/playlist?list=PLVpp0SvtYtdfMvoSB1NwHq3J0MFHSz5FQ
+
+https://www.youtube.com/watch?v=vBgCgHBMR3c 
+
+ Flutter + API ： Coder une application Flutter de Zéro avec une API-aH347JWxCTM.f136
+
+
+ debut du body of home page 
+
+  body: 
+          Center(
+          
+          child: 
+              Container(
+                margin: const EdgeInsets.all(10) ,
+                padding: const EdgeInsets.all(10) ,
+                child: const  Text(
+                  "Faites vos achats en toute secutité" ,
+                  style: TextStyle(
+                    fontSize: 20 ,
+                    fontWeight: FontWeight.w900 ,
+                   )
+                ),
+
+              ) ,
+             
+               ) ,
