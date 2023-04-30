@@ -3,7 +3,10 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/screens/add_task.dart';
 import 'package:myapp/screens/hom_screen.dart';
+import 'package:myapp/screens/list_task.dart';
+import 'package:myapp/screens/profile.dart';
 
 
 class BottomBar extends StatefulWidget {
@@ -18,15 +21,15 @@ class BottomBar extends StatefulWidget {
 class _BottomBarState extends State<BottomBar>{
 
   // initilisation des variables
-  int _selectedIndex=2; 
+  int _selectedIndex=0; 
 
 
 //liste des menus de navigation
     static final List<Widget> _widgetOptions = <Widget> [
       const HomeScreen() , 
-      const Text("Search") ,
-      const Text("Tickets") ,
-      const Text("Profile")
+      const ListTask() ,
+      const AddTask() ,
+      const Profile()
     ] ;
 
 void _onItemTapped(int index) {

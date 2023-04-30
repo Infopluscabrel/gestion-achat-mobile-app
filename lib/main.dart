@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:myapp/cubit/app_cubit.dart';
 import 'package:myapp/screens/bottom_bar.dart';
-import 'package:google_fonts/google_fonts.dart'; 
+import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/services/data_services.dart';
+
+import 'cubit/app_cubit_logics.dart'; 
 void main() {
   runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
 
-   MyApp({super.key});
+   const MyApp({super.key});
 final String info = "Gest Achat" ;
   // This widget is the root of your application.
   @override
@@ -23,7 +28,17 @@ final String info = "Gest Achat" ;
         primarySwatch: Colors.blue,
       ),
      
-      home: const BottomBar() ,
+
+    //  home: const BottomBar() ,
+    // premiere page de l'application 
+    home: BlocProvider<AppCubit>(
+      create:(context) =>AppCubit(
+        data: DataServices() ,
+      ) ,
+
+      child:  AppCubitLogics()
+
+    )  ,
     );
   }
 }
