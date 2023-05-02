@@ -1,44 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myapp/cubit/app_cubit.dart';
-import 'package:myapp/screens/bottom_bar.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/services/data_services.dart';
 
-import 'cubit/app_cubit_logics.dart'; 
 void main() {
   runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
 
-   const MyApp({super.key});
+   MyApp({super.key});
 final String info = "Gest Achat" ;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: GoogleFonts.latoTextTheme(
-          Theme.of(context).textTheme,
-            
-        ),
+     
         primarySwatch: Colors.blue,
       ),
-     
-
-    //  home: const BottomBar() ,
-    // premiere page de l'application 
-    home: BlocProvider<AppCubit>(
-      create:(context) =>AppCubit(
-        data: DataServices() ,
-      ) ,
-
-      child:  AppCubitLogics()
-
-    )  ,
+      home: const soir() ,
     );
   }
 }

@@ -5,4 +5,6 @@ class ApiResponse<T> {
 
   ApiResponse(
       {this.error = false, required this.errorMessage, required this.data});
+
+  get success => null;
 }
