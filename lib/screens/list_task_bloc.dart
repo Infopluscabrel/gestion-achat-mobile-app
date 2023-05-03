@@ -1,30 +1,44 @@
+
+import 'package:flutter_bloc/src/bloc_builder.dart' ;
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/src/bloc_provider.dart';
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/cubit/app_cubit.dart';
+import 'package:myapp/cubit/app_cubit_state.dart';
 import 'package:myapp/model/data_model.dart';
 import 'package:myapp/services/data_services.dart';
 
 class ListTaskBloc extends StatelessWidget {
   const ListTaskBloc({super.key});
 
+
   @override
    Widget build(BuildContext context) {
+  
 
+ 
 // les variables des champs
     TextEditingController nameController =TextEditingController() ;
     TextEditingController detailsController =TextEditingController() ;
      TextEditingController descriptionController =TextEditingController() ;
     
     return Scaffold(
-      body:Container(
+      body: BlocBuilder<AppCubit , CubitStates>(
+        builder: (context , state) {
+
+          if (state is LoadedState) {
+              var info = state.actifs ;
+
+          return  Container(
           color: Colors.grey,
           padding: const EdgeInsets.all(8),
-          child: FutureBuilder<List<DataModel>>  (
-            future: fetchDataModels(),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                List<DataModel> dataModels = snapshot.data as List<DataModel>;
-                return ListView.builder(
-                    itemCount: dataModels.length,
+        
+        //    future: info,
+         
+            
+                child:  ListView.builder(
+                    itemCount: info.length,
                     itemBuilder: (context, index) {
                       return Container(
                         margin: EdgeInsets.all(8),
@@ -32,32 +46,24 @@ class ListTaskBloc extends StatelessWidget {
                         color: Colors.white,
                         child: Column(
                           children: [
-                            Text("${dataModels[index].name} " ),
-                            Text( "${dataModels[index].id} "),
-                            Text(  "${dataModels[index].description} "),
+                            Text("${info[index].name} " ),
+                            Text( "${info[index].id} "),
+                            Text(  "${info[index].description} "),
 
                           ],
                         ),
                       );
-                    });
-              }
-              if (snapshot.hasError) {
-                print(snapshot.error.toString());
-                return Text('error');
-              }
-              return CircularProgressIndicator();
-            },
-          ),
-        ));
-  }
-    
-    Future<List<DataModel>> fetchDataModels() async {
+                    })
+          );
+              }   else {
+                 BlocProvider.of<AppCubit> (context).getData();
+              return Container() ;
+            }
 
-  /// demo de donnees 
-      /*return <DataModel>[
-        DataModel(id: 1, description: "description", name: "cabrel") ,
-        DataModel(id: 2, description: "description2", name: "romaric") ,
-      ];*/
-    return DataServices().getActif() ;
-  }
-}
+        }) 
+              
+              ) ;          //return CircularProgressIndicator();
+           
+    
+   }
+   }

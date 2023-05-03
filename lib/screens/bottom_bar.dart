@@ -30,7 +30,8 @@ class _BottomBarState extends State<BottomBar>{
 
 //liste des menus de navigation
     static final List<Widget> _widgetOptions = <Widget> [
-      const HomeScreen() , 
+   //   const HomeScreen() , 
+   const ListTaskBloc() , 
       const ListTask() ,
       
       const AddTask() ,
